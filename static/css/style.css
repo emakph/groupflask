@@ -1,0 +1,16 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    padding: 20px;
+}
+
+.form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    flex-basis: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Products</title>
+    </head>
+<body>
+    <h1>Add Product Page</h1>
+    <form action="{{url_for('insert_data')}}" method="POST">
+        <label>Product </label>
+        <input type = "text" id = "product" name = "product">
+        <br>
+        <label>Manufacturer </label>
+        <input type = "text" id = "manufacturer" name = "manufacturer">
+        <br>
+        <label>Stocks </label>
+        <input type = "text" id = "stocks" name = "stocks">
+        <br>
+        <input type = "submit" value = "Submit">
+    </form>
+</body>
+</html>

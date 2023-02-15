@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update Product</title>
+        <link href= "{{url_for('static', filename = 'css/style.css')}}", rel= "stylesheet">
+    </head>
+<body>
+<div class = "container">
+    <h1 class = "centered_text">Update Product</h1>
+        
+        <form action="{{url_for('update_data')}}" method="POST">
+            <input type = "hidden" name = "id" value = {{product.0}}>
+            <label for="product">Product:</label><br>
+            <input type="text" id="product" name="product" value = {{product.1}}><br>
+    
+            <label for="manufacturer">Manufacturer:</label><br>
+            <input type="text" id="manufacturer" name="manufacturer" value = {{product.2}}><br>
+    
+            <label for="stocks">Stocks:</label><br>
+            <input type="text" id="stocks" name="stocks" value = {{product.3}}><br>
+    
+            <input type="submit" value="Update">
+          
+</form>
+         
+</div>
+</div>
+</body>
