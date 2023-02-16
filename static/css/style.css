@@ -1,5 +1,19 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
 nav.navbar.navbar-expand-lg.navbar-light.bg-light {
     padding: 20px;
+}
+
+ul.pagination {
+    justify-content: flex-end;
+}
+
+div#mytable_wrapper {
+    width: 90%;
+    margin: auto;
+    padding: 50px 0px;
 }
 
 .form-inline .form-control {
