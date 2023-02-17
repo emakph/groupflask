@@ -13,13 +13,13 @@
         
     </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Management System</a>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary px-5">
+    <div class="container-fluid px-0">
+      <a class="navbar-brand" href="#">Product Management System</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -29,22 +29,22 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Pages
+              Settings
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Profile</a></li>
               <li><a class="dropdown-item" href="#">About Us</a></li>
-              <li><a class="dropdown-item" href="#">FAQs</a></li>
+              <li><a class="dropdown-item" href="#">Documentation</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-    <div>
+    <div class="px-5 py-5">
       <h1>Dashboard</h1>
       <a href = "/insert">Add Product</a>
-      <table id="mytable" class="table table-striped table-dark">
+      <table id="mytable" class="table table-dark">
         <thead>
           <tr>
             <th scope="col">Product</th>
