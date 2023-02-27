@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-    <head>
-      {% include 'header.html' %}
-      <title>Product Manager</title>
-    </head>
-<body>
-  {% include 'nav.html' %}
+{% extends 'base.html' %}
+{% block title %}Product Manager Page{% endblock %}
+{% block content %}
+<div class="content-wrapper-1">
+  <div class="table-wrapper">
     <div class="px-5 py-5">
-      <h1>Dashboard</h1>
-      <a href = "/insert">Add Product</a>
-      <table id="my-table" class="table table-dark">
+      <table id="my-table" class="table table-striped">    
         <thead>
           <tr>
             <th scope="col">Product</th>
             <th scope="col">Manufacturer</th>
             <th scope="col">Stocks</th>
-            <th scope="col">Action</th>
+            <th scope="col">Author ID</th>
           </tr>
         </thead>
         <tbody>
@@ -24,19 +19,18 @@
               <td>{{row.1}}</td>
               <td>{{row.2}}</td>
               <td>{{row.3}}</td>
-              <td>
-                  <a class="btn btn-success" href = "/edit/{{row.0}}">Edit</a>
-                  <a class="btn btn-danger" href = "/delete/{{row.0}}" onclick = "return confirm('Are you sure you want to delete this?')">Delete</a>
-              </td>
+              <td>{{row.4}}</td>
           </tr>
           {% endfor %}
         </tbody>
     </div>
-    
-</body>
+  </div>
+</div>
+{% endblock %}
+{% block addScript %}
 <script>
   $(document).ready(function () {
     $('#my-table').DataTable();
   });
 </script>
-</html>
+{% endblock %}

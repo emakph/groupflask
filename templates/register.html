@@ -1,27 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Register </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">    
-</head>
-<body>
-    <div align="center">
-        <div align="center" class="border">
-           <div class="header">
-              <h1 class="word">Register</h1>
-           </div></br></br></br>
-          <h2 class="word">
-              <form action="{{ url_for('register') }}" method="post">
-                <div class="msg">{{ msg }}</div>
-                  <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
-                  <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br>
-                  <input id="email" name="email" type="text" placeholder="Enter Your Email ID" class="textbox"/></br></br>
-                  <input type="submit" class="btn" value="Sign Up"></br>
-              </form>
-          </h2>
-          <p class="bottom">Already have an account?  <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>
+{% extends 'base.html' %}
+{% block title %}Register Page{% endblock %}
+{% block content %}
+<div class="main-wrapper">
+    <div class="content-wrapper">
+        <div class="form-wrapper">
+            <div class="img-wrapper">
+                <img class="img" src="/static/img/icon.png" >
+            </div>
+            <form action="{{ url_for('register') }}" method="post">
+            <div class="msg">{{ msg }}</div>
+                <div class="mb-3 row custom-row">
+                    <input class="form-control" type="text" name="username" placeholder="Username" aria-label="default input example">
+                </div>
+                <div class="mb-3 row custom-row">
+                    <input class="form-control" type="password" name="password" placeholder="Password" aria-label="default input example">
+                </div>
+                <div class="mb-3 row custom-row">
+                    <input class="form-control" type="email" name="email" placeholder="your-email@email.com" aria-label="default input example">
+                </div>
+                <div class="d-grid col-12 mx-auto">
+                    <input type="submit" class="btn btn-primary" value="Sign Up"></br>
+                </div>
+                
+            </form>
+            <p class="bottom">Already have an account? <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>
         </div>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

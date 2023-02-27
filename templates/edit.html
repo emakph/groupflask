@@ -1,29 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% include 'header.html' %}
-        <title>Update Product</title>
-        <link href= "{{url_for('static', filename = 'css/style.css')}}", rel= "stylesheet">
-    </head>
-<body>
-    {% include 'nav.html' %}
-    <div class = "container">
-        <h1 class = "centered_text">Update Product</h1>
-            
-            <form action="{{url_for('update_data')}}" method="POST">
+{% extends 'base.html' %}
+{% block title %}Edit Page{% endblock %}
+{% block content %}
+<div class="main-wrapper">
+    <div class="content-wrapper">
+        <form class="shadow p-3 mb-5 bg-body rounded" action="{{url_for('update_data')}}" method="POST">
+            <div class="inner-form">
                 <input type = "hidden" name = "id" value = {{product.0}}>
-                <label for="product">Product:</label><br>
-                <input type="text" id="product" name="product" value = {{product.1}}><br>
-        
-                <label for="manufacturer">Manufacturer:</label><br>
-                <input type="text" id="manufacturer" name="manufacturer" value = {{product.2}}><br>
-        
-                <label for="stocks">Stocks:</label><br>
-                <input type="text" id="stocks" name="stocks" value = {{product.3}}><br>
-        
-                <input type="submit" value="Update">
-            
-            </form>
-            
+                <div class="mb-3 row">
+                    <label for="product" class="col-sm-4 col-form-label">Product: </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="product" name="product" value = {{product.1}}>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="manufacturer" class="col-sm-4 col-form-label">Manufacturer: </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="manufacturer" name="manufacturer" value = {{product.2}}>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="stocks" class="col-sm-4 col-form-label">Stocks: </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="stocks" name="stocks" value = {{product.3}}>
+                    </div>
+                </div>
+                <div class="d-grid gap-2 col-12 mx-auto">
+                    <input  class="btn btn-primary" type="submit" value="Update">
+                </div>
+            </div>
+        </form>
     </div>
-</body>
+</div>
+{% endblock %}
+

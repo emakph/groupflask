@@ -1,0 +1,31 @@
+
+  <nav id="navbarMain" class="navbar fixed-top px-5 py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/static/img/icon.png" alt="" class="d-inline-block align-text-top">
+        Product Listing
+      </a>
+      {% if session.loggedin %}
+      <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link text-dark" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+              <a class="btn btn-primary" href="/insert" role="button">Add Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-danger" href="/logout" role="button">Logout</a> 
+          </li>
+      </ul>
+      {% else %}
+      <ul class="nav justify-content-end">
+          <li class="nav-item">
+              <a class="btn btn-primary" href="/login" role="button">Login</a> 
+          </li>
+      </ul>
+      {% endif %}
+    </div>
+  </nav>

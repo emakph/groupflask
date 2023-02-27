@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include 'head.html' %}
+    <title>{% block title %}Base Template Page{% endblock %} - My Webpage</title>
+  </head>
+  <header>
+    {% block nav %}
+      {% include 'navigation.html' %}
+    {% endblock %}
+  </header>
+  <body>
+    <div id="wrapper">
+        {% block content %}
+        <h1>Hello, world!</h1>
+        {% endblock %}
+    </div>
+    
+    {% include 'scripts.html' %}
+  </body>
+  <script>
+    $(window).scroll(function() {
+      var nav = $('#navbarMain');
+      var top = 30;
+      if ($(window).scrollTop() >= top) {
+
+          nav.addClass('fixed');
+
+      } else {
+          nav.removeClass('fixed');
+      }
+    });
+  </script>
+  {% block addScript %}
+  {% endblock %}
+</html>
