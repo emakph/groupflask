@@ -19,37 +19,49 @@ def index():
 
 @app.route("/edit/<int:id>", methods = ['GET'])
 def user(id):
-    cur = conn.cursor() 
-    cur.execute("""SELECT * FROM products WHERE id = %s""", (id,))
-    product = cur.fetchone()
-    #cur.close()
-    return render_template('edit.html', product = product)
+    if session:
+        cur = conn.cursor() 
+        cur.execute("""SELECT * FROM products WHERE id = %s""", (id,))
+        product = cur.fetchone()
+        #cur.close()
+        return render_template('edit.html', product = product)
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/edit/update_data/', methods = ["POST", "GET"])
 def update_data():
-    if request.method == 'POST':
-        id = request.form['id']
-        product = request.form['product']
-        manufacturer = request.form['manufacturer']
-        stocks = request.form['stocks']
-    cur = conn.cursor()
-    query = "UPDATE products SET product = %s,manufacturer = %s, stocks = %s WHERE id = %s"
-    val = product, manufacturer, stocks, id
-    cur.execute(query,val)
-    conn.commit()
-    return redirect(url_for('profile'))
+    if session:
+        if request.method == 'POST':
+            id = request.form['id']
+            product = request.form['product']
+            manufacturer = request.form['manufacturer']
+            stocks = request.form['stocks']
+        cur = conn.cursor()
+        query = "UPDATE products SET product = %s,manufacturer = %s, stocks = %s WHERE id = %s"
+        val = product, manufacturer, stocks, id
+        cur.execute(query,val)
+        conn.commit()
+        return redirect(url_for('profile'))
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/delete/<string:id_data>', methods = ['GET'])
 def delete(id_data):
-    cur = conn.cursor()
-    cur.execute("DELETE FROM products WHERE id=%s", (id_data,))
-    conn.commit()
-    print('Data deleted successfully.')
-    return redirect(url_for('profile'))
+    if session:
+        cur = conn.cursor()
+        cur.execute("DELETE FROM products WHERE id=%s", (id_data,))
+        conn.commit()
+        print('Data deleted successfully.')
+        return redirect(url_for('profile'))
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/insert')
 def insert():
-    return render_template('insert.html')
+    if session:
+        return render_template('insert.html')
+    else:
+        return redirect(url_for('login'))
 
 #Used to insert the data
 @app.route('/insert/insert_data/', methods = ['POST','GET'])

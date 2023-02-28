@@ -1,0 +1,12 @@
+CREATE TABLE public.products
+(
+    id bigserial NOT NULL,
+    product character varying(255) NOT NULL,
+    manufacturer character varying(255) NOT NULL,
+    stocks bigint NOT NULL,
+    author bigint NOT NULL,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS public.products
+    OWNER to postgres;
